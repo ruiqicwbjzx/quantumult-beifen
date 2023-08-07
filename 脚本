@@ -1,0 +1,23 @@
+/******************************
+⚠️如果放远程，请把ztbn.js替换成运程链接⚠️
+  🧚🏻‍♂️作者：🍡魔法师、木木🍡
+  wx交流群：1077223830
+🫧脚本名称:真题伴侣一三岁
+🫧建议配合working copy一起食用
+✈️working copy下载地址https://apps.apple.com/app/id896694807✈️
+*******************************
+%¥
+[rewrite_local]
+^http?:\/\/newtest\.zoooy111\.com\/mobile\.php\/User\/index.*? url script-response-body ztbn.js
+
+
+[mitm]
+hostname = newtest.zoooy111.com
+%¥
+*******************************/
+var body=$response.body;
+body = body.replace(/.+/g,'{
+  "success": 1,
+  "data": "24dd6a9850475d04d36e80a4e56e69533fc0f5025ae162fccbe6dafdd5154d151fc6068f921185b51f67a93ebacc5f27e39ee2527322d623d39e8b7921a27a0abdd151a57e96d075193e68168a9727732d0b17bbc100e887b86031cf83dc400d3d795bb0a5cdd32c1d75b555b7cbb30f8a0d2b8f486f96cca844c4aa508fb162e3e6f05fafe208ff5d3ccb524f52465fb803c8c5345e32653a0382748349e70d57d63bed1a73cf64ad312f26f413f188cb49df3ead400c0736c59d6f8c5573437d8325c617cf48f16207ef57eacde1b90c51ed765f62f35f82fe3fa1f3b9656b4ca766e3d01266589cdf921e298020dd7886ef0ec3bf790d84cfdcdcf3340fc8c3bea741763df988fed32da1e33a14a6b16eb822fd7919df24508e356d70b1f94422c7a66ec26028880ae0d49bcd43f8e9a7066a3ce278d9405047efcdce5000"
+}');
+$done(body);
