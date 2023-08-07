@@ -1,0 +1,36 @@
+const path1 = '/v1/payments/appleiap/receipts/confirmation';
+const path2 = '/v1/payments/profiles/@me/subscription';
+
+const bodyData1 = {
+  "app": "PPE",
+  "planType": "yearly",
+  "planTier": "studio",
+  "isUnlimited": true,
+  "membershipExpiryDate": "2028-06-06T08:00:00.000Z"
+};
+
+const bodyData2 = {
+  "app": "PPE",
+  "planId": "co.polarr.ppe.premium.studio.yearly",
+  "isTrial": false,
+  "isUnlimited": true,
+  "membershipExpiryDate": "2100-03-03T06:10:24.000Z",
+  "planTier": "studio",
+  "startDate": "2023-02-03T06:10:24.000Z",
+  "expiryDate": "2100-03-03T06:10:24.000Z",
+  "isSubscribed": true,
+  "planType": "yearly",
+  "subscriptionProduct": "yearly",
+  "subscriptionTier": "studio",
+  "paymentChannel": "AppleIapSubscription"
+};
+
+const path = $request.path;
+
+if (path.indexOf(path1) !== -1) {
+  $done({ body: JSON.stringify(bodyData1), status: 'HTTP/1.1 200 OK', headers: $response.headers });
+} else if (path.indexOf(path2) !== -1) {
+  $done({ body: JSON.stringify(bodyData2), status: 'HTTP/1.1 200 OK', headers: $response.headers });
+} else {
+  $done({});
+}
