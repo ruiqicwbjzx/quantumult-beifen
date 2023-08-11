@@ -1,0 +1,22 @@
+/******************************
+⚠️如果放远程，请把wxai.js替换成运程链接⚠️
+  🧚🏻‍♂️作者：🍡魔法师、木木🍡
+  wx交流群：1077223830
+🫧脚本名称:微信ai
+🫧建议配合working copy一起食用
+✈️working copy下载地址https://apps.apple.com/app/id896694807✈️
+*******************************
+%¥
+[rewrite_local]
+^http?:\/\/ai1\.yundingxin\.cn\/api\/h5\/v1\/common\/getUserInfo|http?:\/\/ai2\.yundingxin\.cn\/api\/h5\/v1\/common\/getUserInfo.*? url script-response-body wxai.js
+
+
+[mitm]
+hostname = ai1.yundingxin.cn,ai2.yundingxin.cn
+%¥
+*******************************/
+var body=$response.body;
+body = body.replace(/"isVip\":\d+/g,'"isVip":1');
+body = body.replace(/"vipLevel\":\d+/g,'"vipLevel":3');
+body = body.replace(/"freeNum\":\d+/g,'"freeNum":99');
+$done(body);
