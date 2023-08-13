@@ -1,0 +1,20 @@
+/******************************
+⚠️如果放远程，请把sk10.js替换成运程链接⚠️
+  🧚🏻‍♂️作者：🍡魔法师、木木🍡
+  wx交流群：1077223830
+🫧脚本名称:兽课
+🫧建议配合working copy一起食用
+✈️working copy下载地址https://apps.apple.com/app/id896694807✈️
+*******************************
+%¥
+[rewrite_local]
+^https?:\/\/*\/live-training\/course-query\/query-course-record-data.*? url script-response-body sk10.js
+
+
+[mitm]
+hostname = 
+%¥
+*******************************/
+var body=$response.body;
+body = body.replace(/"isBuy\":\w+/g,'"isBuy":true');
+$done(body);
