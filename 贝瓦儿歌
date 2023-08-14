@@ -1,0 +1,25 @@
+/******************************
+⚠️如果放远程，请把bweg.js替换成运程链接⚠️
+  🧚🏻‍♂️作者：🍡魔法师、木木🍡
+  wx交流群：1077223830
+🫧脚本名称:贝瓦儿歌
+🫧建议配合working copy一起食用
+✈️working copy下载地址https://apps.apple.com/app/id896694807✈️
+*******************************
+%¥
+[rewrite_local]
+^http?:\/\/passport\.beva\.com*|https?:\/\/cms\.beva\.com*.*? url script-response-body bweg.js
+
+
+[mitm]
+hostname = passport.beva.com,cms.beva.com
+%¥
+*******************************/
+var body=$response.body;
+body = body.replace(/"money\":\d+/g,'"money":999999');
+body = body.replace(/"is_vip\":"N"/g,'"is_vip":1');
+body = body.replace(/"end_time\":0/g,'"end_time":30081887854');
+body = body.replace(/"end_time_fmt\":"-"/g,'"end_time_fmt":30081887854');
+body = body.replace(/"errorCode\":\d+/g,'"errorCode":0');
+body = body.replace(/"message\":".*?"/g,' "message":"success"');
+$done(body);
