@@ -1,0 +1,16 @@
+
+🫧脚本名称:叫叫
+*******************************
+[rewrite_local]
+^https?:\/\/api\.tinman\.cn\/jojosherlock\/picturebook\/api\/home-page\/tab-info\/v3\/list|https?:\/\/api\.tinman\.cn*.*? url script-response-body jiaojisohuiben.js
+
+
+[mitm]
+hostname = api.tinman.cn,api.tinman.cn
+%¥
+*******************************/
+var body=$response.body;
+body = body.replace(/"charge\":\d+/g,'"charge":0');
+body = body.replace(/"userUnlocked\":\d+/g,'"userUnlocked":1');
+body = body.replace(/"trialReadPage\":\d+/g,'"trialReadPage":99');
+$done(body);
