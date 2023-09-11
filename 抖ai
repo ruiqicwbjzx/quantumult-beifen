@@ -1,0 +1,17 @@
+
+🫧脚本名称:抖ai
+*******************************
+[rewrite_local]
+^https?:\/\/www\.douresources\.com*.*? url script-response-body douai.js
+
+
+[mitm]
+hostname = www.douresources.com
+%¥
+*******************************/
+var body=$response.body;
+body = body.replace(/"vip_status\":\d+/g,'"vip_status":1');
+body = body.replace(/"overdue_time_format\":".*?"/g,'"overdue_time_format":"9999-09-11 12:14"');
+body = body.replace(/"vip_status_format\":-\d+/g,'"vip_status_format":1');
+body = body.replace(/"is_enabled\":\d+/g,'"is_enabled":1');
+$done(body);
