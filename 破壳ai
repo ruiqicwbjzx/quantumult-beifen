@@ -1,0 +1,14 @@
+/*******************************
+脚本名称:  破壳ai
+描述:
+脚本作者：三岁
+*******************************
+[rewrite_local]
+^http[s]?:\/\/www.pushplus.plus\/api\/customer\/user\/userInfo url script-response-body pushplus.js
+[mitm] 
+hostname = www.pushplus.plus
+
+*******************************/
+
+var body = $response.body.replace(/"isVip":\d+/g,'"isVip":1')
+$done({ body });
