@@ -1,0 +1,14 @@
+
+🫧脚本名称:破壳ai
+*******************************
+[rewrite_local]
+^https?:\/\/www\.pushplus\.plus\/api\/customer\/user\/userInfo|https?:\/\/www\.pushplus\.plus\/api\/common\/user\/chatGPT.*? url script-response-body pkai1.js
+
+
+[mitm]
+hostname = www.pushplus.plus,www.pushplus.plus
+%¥
+*******************************/
+var body=$response.body;
+body = body.replace(/"isVip\":\d+/g,'"isVip":1');
+$done(body);
